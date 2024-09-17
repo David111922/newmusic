@@ -4,9 +4,9 @@ import Gallery from './components/Gallery'
 import SearchBar from './components/SearchBar'
 
 function App() {
-  let [searchTerm, setSearchTerm] = useState('')
-  let [data, setData] = useState([])
-  let [message, setMessage] = useState('Search for Music!')
+  let [searchTerm, setSearchTerm] = useState<string>('')
+  let [data, setData] = useState<any>([])
+  let [message, setMessage] = useState<string>('Search for Music!')
 
   useEffect(() => {
     if (searchTerm) {
@@ -24,10 +24,11 @@ function App() {
   }
   }, [searchTerm])
 
-  const handleSearch = (e, term) => {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>, term: string) => {
     e.preventDefault()
     setSearchTerm(term)
   }
+  
 
   return (
     <div className="App">
